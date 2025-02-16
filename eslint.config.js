@@ -5,7 +5,10 @@ export default [
   js.configs.recommended,
   {
     languageOptions: {
-      globals: globals.node,
+      globals: {
+         ...globals.node,
+         ...globals.jest 
+       },
     },
     rules: {
       'no-console': 'off',
@@ -13,5 +16,6 @@ export default [
       'quotes': ['error', 'single'],
       'jest/prefer-expect-assertions': 'off' 
     },
+      ignores: ['node_modules/', 'dist/', '**/*.min.js', 'coverage/', 'docs/']
   },
 ];
